@@ -5,39 +5,7 @@ const cors = require("cors");
 const path = require("path");
 const sql = require("mssql");//25/12/2021
 
-/*-------------------add detailes of sqlConfig-----------------*/
 
-const config ={
-  user: 'sa',
-  password: '',
-  server: 'localhost',
-  database: ''
-};
-
-app.get('/', function(req, res){
-  let connection = sql.connect(sqlConfig,err => {
-   if(err){
-     console.log(err);
-   }
-   else{
-    res.send('DB Connected');
-    //code for sql request here
-   }
-  });
-  const request = new sql.Request();
-  app.listen(port,function(){
-    console.log('Server started at ${PORT}');
-  });
-  
-  // SQL Query here
-  request.query('select * from Tb...').then(res=>{
-    console.log(res);
-  })
-
-})
-
-
-/*-------------------------------------------------------------*/
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
@@ -51,7 +19,7 @@ app.post("/api", (req, res) => {
       console.log(qrCodeData); // show data used to generate QR Code
       res.send(qrCodeData);
       await wbm.waitQRCode();
-///هنا اضيف الاستدعاء من الداتابيز 
+
       const phones = [phone];
       const message = msg;
 
