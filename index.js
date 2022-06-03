@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const path = require("path");
-const sql = require("mssql");//25/12/2021
+
 
 
 app.use(express.json());
